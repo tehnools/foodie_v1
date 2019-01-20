@@ -6,7 +6,7 @@ import 'product_control.dart';
 class ProductManager extends StatefulWidget {
   final String startingProduct;
 
-  ProductManager({this.startingProduct = 'Loli Tester'}){
+  ProductManager({this.startingProduct = 'Loli Tester'}) {
     print('Products Manager Constructor');
   }
 
@@ -27,23 +27,22 @@ class _ProductManagerState extends State<ProductManager> {
     _products.add(widget.startingProduct);
   }
 
-
   @override
-    void didUpdateWidget(ProductManager oldWidget) {
-      print('Products Manager didUpdateWidget');
-      super.didUpdateWidget(oldWidget);
-    }
+  void didUpdateWidget(ProductManager oldWidget) {
+    print('Products Manager didUpdateWidget');
+    super.didUpdateWidget(oldWidget);
+  }
 
-    void _addProduct(String productName){
-      setState(() {
-                _products.add(productName);
-              });
-    }
+  void _addProduct(String productName) {
+    setState(() {
+      _products.add(productName);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     print('Products Manager Build');
-    return Column(children: [
+    return ListView(children: [
       Container(
         margin: EdgeInsets.all(10),
         child: ProductControl(_addProduct),
