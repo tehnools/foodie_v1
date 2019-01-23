@@ -10,7 +10,7 @@ print('Products Widget Constructor');
 @override
   Widget build(BuildContext context) {
     print('Products Widget Build');
-    return  Column(
+    return  ListView(
             children: products
                 .map((element) => Card(
                       child: Column(
