@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import '../product_manager.dart';
+
+// Routes
+// import '../product_manager.dart';
 import './home.dart';
-
-
+import './inventory.dart';
+import './shopping_list.dart';
 
 class ProductManagmentPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        drawer: Drawer(
           child: Column(
             children: <Widget>[
               AppBar(
@@ -18,21 +21,26 @@ class ProductManagmentPage extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              HomePage()));
+                  Navigator.pushReplacementNamed(context, '/');
                 },
                 title: Text('Home'),
               ),
             ],
           ),
         ),
-      appBar: AppBar(
-        title: Text('Product Manager'),
+        appBar: AppBar(
+          title: Text('Product Manager'),
+          bottom: TabBar(
+            tabs: <Widget>[
+              Tab(text: 'Shopping List', icon: Icon(Icons.list)),
+              Tab(text: 'Inventory', icon: Icon(Icons.receipt)),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: <Widget>[ShoppingListPage(), InventoryPage()],
+        ),
       ),
-      body: ProductManager(),
     );
   }
 }
