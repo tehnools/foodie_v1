@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import '../product_manager.dart';
+import './home.dart';
 
-// Routes
-import './product_management.dart';
 
-class HomePage extends StatelessWidget {
+
+class ProductManagmentPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(
+      drawer: Drawer(
           child: Column(
             children: <Widget>[
               AppBar(
@@ -20,18 +22,17 @@ class HomePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              ProductManagmentPage()));
+                              HomePage()));
                 },
-                title: Text('Manage Products'),
+                title: Text('Home'),
               ),
             ],
           ),
         ),
-        appBar: AppBar(
-          title: Text('Foodie'),
-        ),
-        body: Center(
-          child: Text('To be created'),
-        ));
+      appBar: AppBar(
+        title: Text('Product Manager'),
+      ),
+      body: ProductManager(),
+    );
   }
 }

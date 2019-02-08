@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import './product_manager.dart';
-import './pages/home.dart';
+// import './pages/home.dart';
+import './pages/auth.dart';
+
 
 
 void main() {
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
       // debugShowMaterialGrid: true,
       theme:
           ThemeData(primarySwatch: Colors.teal, accentColor: Colors.tealAccent),
-      home: HomePage(),
+      home: AuthPage(),
     );
   }
 }
