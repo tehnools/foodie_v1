@@ -22,10 +22,7 @@ class Products extends StatelessWidget {
                 child: Text('more'),
                 onPressed: () => Navigator.push<bool>(
                       context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => ProductPage(
-                            products[index]['title'], products[index]['image']),
-                      ),
+                      //TODO
                     ).then((bool isDeleted) {
                       if (isDeleted) {
                         deleteProduct(index);
