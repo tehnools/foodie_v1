@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void _deleteProduct(int index){
+  void _deleteProduct(int index) {
     setState(() {
       _products.removeAt(index);
     });
@@ -51,7 +51,8 @@ class _MyAppState extends State<MyApp> {
       // home: AuthPage(),
       routes: {
         '/': (BuildContext context) => HomePage(),
-        '/products': (BuildContext context) => ProductsPage(_products, _addProduct, _deleteProduct),
+        '/products': (BuildContext context) =>
+            ProductsPage(_products, _addProduct, _deleteProduct),
         '/product_managment': (BuildContext context) => ProductManagmentPage(),
       },
       onGenerateRoute: (RouteSettings settings) {
@@ -62,12 +63,15 @@ class _MyAppState extends State<MyApp> {
         if (pathElements[1] == 'product') {
           final int index = int.parse(pathElements[2]);
           return MaterialPageRoute<bool>(
-            builder: (BuildContext context) =>
-                ProductPage(_products[index]['title'], _products[index]['image']),
+            builder: (BuildContext context) => ProductPage(
+                _products[index]['title'], _products[index]['image']),
           );
         } else {
           return null;
         }
+      },
+      onUnknownRoute: (RouteSettings settings) {
+        return MaterialPageRoute(builder: (BuildContext context) => HomePage());
       },
     );
   }
