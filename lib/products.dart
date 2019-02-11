@@ -20,10 +20,9 @@ class Products extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 child: Text('more'),
-                onPressed: () => Navigator.push<bool>(
-                      context,
-                      //TODO
-                    ).then((bool isDeleted) {
+                onPressed: () => Navigator.pushNamed<bool>(
+                            context, '/product/' + index.toString())
+                        .then((bool isDeleted) {
                       if (isDeleted) {
                         deleteProduct(index);
                       }

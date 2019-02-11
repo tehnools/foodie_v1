@@ -25,6 +25,12 @@ class ProductManagmentPage extends StatelessWidget {
                 },
                 title: Text('Home'),
               ),
+              ListTile(
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/products');
+                },
+                title: Text('Products'),
+              ),
             ],
           ),
         ),

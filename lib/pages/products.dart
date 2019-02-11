@@ -35,7 +35,7 @@ class ProductsPage extends StatelessWidget {
           ),
         ),
         appBar: AppBar(
-          title: Text('Foodie'),
+          title: Text('Products'),
         ),
         body: Center(
           child: ProductManager(products, addProduct, deleteProduct),
