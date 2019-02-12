@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 // Routes
 // import '../product_manager.dart';
-import './home.dart';
 import './inventory.dart';
 import './shopping_list.dart';
 
