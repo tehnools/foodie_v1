@@ -14,33 +14,46 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        TextField(
-          onChanged: (String value) {
-            setState(() {
-              title = value;
-            });
-          },
-        ),
-        TextField(
-          maxLines: 4,
-          onChanged: (String value) {
-            setState(() {
-              description = value;
-            });
-          },
-        ),
-        TextField(
-          keyboardType: TextInputType.number,
-          onChanged: (String value) {
-            setState(() {
-              price = double.parse(value);
-            });
-          },
-        ),
-        Text(title),
-      ],
+    return Container(
+      margin: EdgeInsets.all(15.0),
+      child: ListView(
+        children: <Widget>[
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Product Title',
+            ),
+            onChanged: (String value) {
+              setState(() {
+                title = value;
+              });
+            },
+          ),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Product Description',
+            ),
+            onChanged: (String value) {
+              setState(() {
+                description = value;
+              });
+            },
+          ),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Product Price',
+            ),
+            keyboardType: TextInputType.number,
+            onChanged: (String value) {
+              setState(() {
+                price = double.parse(value);
+              });
+            },
+          ),
+          RaisedButton(child: Text('Save'), onPressed: (){
+            
+          },)
+        ],
+      ),
     );
   }
 }
