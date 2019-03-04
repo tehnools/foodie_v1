@@ -53,10 +53,21 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
               });
             },
           ),
-          RaisedButton(child: Text('Save'), onPressed: (){
-            final Map<String,dynamic> product = {'title': title, 'description': description, 'price': price, 'image': 'assets/food.jpg'};
-            widget.addProduct(product);
-          },)
+          RaisedButton(
+            child: Text('Save'),
+            // color: Colors.teal[200],
+            // textColor: Colors.white,
+            onPressed: () {
+              final Map<String, dynamic> product = {
+                'title': title,
+                'description': description,
+                'price': price,
+                'image': 'assets/food.jpg'
+              };
+              widget.addProduct(product);
+              Navigator.pushReplacementNamed(context, '/products');
+            },
+          )
         ],
       ),
     );

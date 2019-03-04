@@ -7,9 +7,8 @@ import './shopping_list.dart';
 
 class ProductManagmentPage extends StatelessWidget {
   final Function addProduct;
-  final Function deleteProduct;
 
-  ProductManagmentPage(this.addProduct, this.deleteProduct);
+  ProductManagmentPage(this.addProduct);
 
   @override
   Widget build(BuildContext context) {

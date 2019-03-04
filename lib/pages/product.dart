@@ -2,30 +2,38 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class ProductPage extends StatelessWidget {
+  final int index;
   final String title;
   final String imageurl;
+  final Function deleteProduct;
 
-  ProductPage(this.title, this.imageurl);
+  ProductPage(this.index, this.title, this.imageurl, this.deleteProduct);
 
   _showWarningDialog(BuildContext context) {
-    return AlertDialog(
-      title: Text('Are you sure?'),
-      content: Text('Action cannot be undone'),
-      actions: <Widget>[
-        FlatButton(
-            child: Text('Cancel'),
-            color: Theme.of(context).accentColor,
-            onPressed: () {
-              Navigator.pop(context);
-            }),
-        FlatButton(
-            child: Text('Delete'),
-            onPressed: () {
-              Navigator.pop(context);
-              Navigator.pop(context, true);
-            })
-      ],
-    );
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Are you sure?'),
+            content: Text('Action cannot be undone'),
+            actions: <Widget>[
+              FlatButton(
+                  child: Text('Cancel'),
+                  color: Theme.of(context).accentColor,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+              FlatButton(
+                  child: Text('Delete'),
+                  onPressed: () {
+                    deleteProduct(index);
+                    Navigator.pop(context);
+                    Navigator.pop(context, true);
+                  })
+            ],
+          );
+        });
   }
 
   @override
@@ -48,7 +56,7 @@ class ProductPage extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
               child: RaisedButton(
                 child: Text('Delete'),
-                onPressed: () =>_showWarningDialog(context),
+                onPressed: () => _showWarningDialog(context),
               ),
             )
           ],

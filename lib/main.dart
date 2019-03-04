@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 
 // Routes
 // import './pages/auth.dart';
-import './products.dart';
 
 import './pages/product_management.dart';
 import './pages/home.dart';
@@ -52,7 +51,7 @@ class _MyAppState extends State<MyApp> {
         '/': (BuildContext context) => HomePage(),
         '/products': (BuildContext context) => ProductsPage(_products),
         '/product_managment': (BuildContext context) =>
-            ProductManagmentPage(_addProduct, _deleteProduct),
+            ProductManagmentPage(_addProduct),
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
@@ -62,8 +61,8 @@ class _MyAppState extends State<MyApp> {
         if (pathElements[1] == 'product') {
           final int index = int.parse(pathElements[2]);
           return MaterialPageRoute<bool>(
-            builder: (BuildContext context) => ProductPage(
-                _products[index]['title'], _products[index]['image']),
+            builder: (BuildContext context) => ProductPage(index,
+                _products[index]['title'], _products[index]['image'], _deleteProduct),
           );
         } else {
           return null;
